@@ -1,0 +1,23 @@
+{
+  "type": "record",
+  "name": "Person",
+  "namespace": "com.prosoft.domain",
+  "fields": [
+    {
+      "name": "id",
+      "type": "long"
+    },
+    {
+      "name": "firstName",
+      "type": "string"
+    },
+    {
+      "name": "lastName",
+      "type": "string"
+    },
+    {
+      "name": "age",
+      "type": "int"
+    }
+  ]
+}

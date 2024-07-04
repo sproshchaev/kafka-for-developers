@@ -29,3 +29,14 @@ include("webinar-05:consumer-service")
 findProject(":webinar-05:consumer-service")?.name = "consumer-service"
 include("webinar-06:stream-service")
 findProject(":webinar-06:stream-service")?.name = "stream-service"
+include("webinar-07")
+include("webinar-08")
+include("webinar-07:consumer-service")
+findProject(":webinar-07:consumer-service")?.name = "consumer-service"
+include("webinar-07:producer-service")
+findProject(":webinar-07:producer-service")?.name = "producer-service"
+include("webinar-09")
+include("webinar-09:producer-service")
+findProject(":webinar-09:producer-service")?.name = "producer-service"
+include("webinar-09:consumer-service")
+findProject(":webinar-09:consumer-service")?.name = "consumer-service"

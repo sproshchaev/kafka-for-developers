@@ -1,0 +1,19 @@
+### 1) регистрация схемы для топика "w7-topic"
+POST http://localhost:8081/subjects/w7-topic-value/versions
+Content-Type: application/json
+
+{
+  "schema": "{ \"type\": \"record\", \"name\": \"Person\", \"namespace\": \"com.prosoft.domain\", \"fields\": [ { \"name\": \"id\", \"type\": \"long\" }, { \"name\": \"firstName\", \"type\": \"string\" }, { \"name\": \"lastName\", \"type\": \"string\" }, { \"name\": \"age\", \"type\": \"int\" } ] }"
+}
+
+### 2) получение информ. о версии схемы #1 топика "w7-topic"
+GET http://localhost:8081/subjects/w7-topic-value/versions/1
+Accept: application/json
+
+### 3) изменение стратегии
+PUT http://localhost:8081/config/w7-topic-value
+Content-Type: application/json
+
+{
+  "compatibility": "NONE"
+}
