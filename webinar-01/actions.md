@@ -13,27 +13,31 @@ docker compose ps -a
 docker exec -ti kafka /usr/bin/kafka-topics --list --bootstrap-server kafka:9093
 ```
 
-`4.` Создаем новый "topic1"
+`4.` Создаем новый "vowels"
 ```shell
-docker exec -ti kafka /usr/bin/kafka-topics --create --topic topic1 --bootstrap-server localhost:9093
+docker exec -ti kafka /usr/bin/kafka-topics --create --topic vowels --bootstrap-server localhost:9093
 ```
-
-`5.` Отправляем сообщение "topic1": появляется консоль ввода сообщений, вводим сообщение одно за другим, разделяя Enter и в конце нажимаем в Win ctrl+D (в MacOS: control+C)
+`5.` Создаем новый "consonants"
 ```shell
-docker exec -ti kafka /usr/bin/kafka-console-producer --topic topic1 --bootstrap-server kafka:9093
+docker exec -ti kafka /usr/bin/kafka-topics --create --topic consonants --bootstrap-server localhost:9093
 ```
-
-`6.` Получить сообщения
+`6.` Отправляем сообщение "vowels": появляется консоль ввода сообщений, вводим сообщение одно за другим, разделяя Enter и в конце нажимаем в Win ctrl+D (в MacOS: control+C)
 ```shell
-docker exec -ti kafka /usr/bin/kafka-console-consumer --from-beginning --topic topic1 --bootstrap-server localhost:9093
+docker exec -ti kafka /usr/bin/kafka-console-producer --topic vowels --bootstrap-server kafka:9093
 ```
-
-`7.` Получить сообщения как consumer1
+`7.` Отправляем сообщение "consonants": появляется консоль ввода сообщений, вводим сообщение одно за другим, разделяя Enter и в конце нажимаем в Win ctrl+D (в MacOS: control+C)
 ```shell
-docker exec -ti kafka /usr/bin/kafka-console-consumer --group consumer1 --topic topic1 --bootstrap-server localhost:9093 
+docker exec -ti kafka /usr/bin/kafka-console-producer --topic consonants --bootstrap-server kafka:9093
 ```
-
-`8.` Останавливаем контейнеры, удаляем контейнеры, удаляем неиспользуемые тома:
+`8.` Получить сообщения из vowels
+```shell
+docker exec -ti kafka /usr/bin/kafka-console-consumer --from-beginning --topic vowels --bootstrap-server localhost:9093
+```
+`9.` Получить сообщения из consonants
+```shell
+docker exec -ti kafka /usr/bin/kafka-console-consumer --from-beginning --topic consonants --bootstrap-server localhost:9093
+```
+`10.` Останавливаем контейнеры, удаляем контейнеры, удаляем неиспользуемые тома:
 ```shell
 docker compose stop
 docker container prune -f
