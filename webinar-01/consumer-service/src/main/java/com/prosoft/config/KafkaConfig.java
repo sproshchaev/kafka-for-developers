@@ -27,7 +27,7 @@ public class KafkaConfig {
         properties.put(ConsumerConfig.GROUP_ID_CONFIG, GROUP_ID);
 
         /** Использование StringDeserializer для десериализации ключей и значений сообщений.
-         *  StringDeserializer.class в контексте Apache Kafka представляет собой реализацию интерфейса Serializer
+         *  StringDeserializer.class в контексте Apache Kafka представляет собой реализацию интерфейса Deserializer
          *  из клиентской библиотеки Kafka, которая используется для десериализации объектов типа из байтового формата
          *  в тип String.
          */
