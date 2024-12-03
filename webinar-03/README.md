@@ -46,7 +46,7 @@ Kafka Consumer API
 3)  rebalance:
       + heartbeat.interval.ms - интервал отправки "сигналов жизни" (по умолч. 3 сек);
       + session.timeout.ms - время ожидания ответа на "сигналы жизни" (по умолч. 10 сек);
-      + max.poll.interval.ms - время за которое Кансамер должен вызывать .poll() (по умолч. 5 мин); 
+      + max.poll.interval.ms - время за которое Консюмер должен вызывать .poll() (по умолч. 5 мин); 
       - вызов rebalance:
            - .consumer.subscribe(Arrays.asList("topic1", "topic2")) - подписка на топик; 
            - .close() - метод закрывает потребитель и освобождает все ресурсы;
@@ -59,8 +59,8 @@ Kafka Consumer API
 4) Offset:
       + Auto-commit и топик "__consumer_offset";
       - enable.auto.commit=false - отключение Auto-commit (топик "__consumer_offset" не используется);
-      - Consumer.commitSync() - блокирующий метод (синхронный), используется для ручной записи оффсета Консамером в топик "__consumer_offset";
-      - Consumer.commitAsync() - неблокирующий метод (асинхронный), используется для ручной записи оффсета Консамером в топик "__consumer_offset". Возможно использовать Callback;
+      - Consumer.commitSync() - блокирующий метод (синхронный), используется для ручной записи оффсета Консюмером в топик "__consumer_offset";
+      - Consumer.commitAsync() - неблокирующий метод (асинхронный), используется для ручной записи оффсета Консюмером в топик "__consumer_offset". Возможно использовать Callback;
       - Совместное использование: Consumer.commitAsync() - для основного чтения. Consumer.commitSync() - перед закрытием Consumer в (finally);
 5) Consumer API configuration:
       + botstrap.servers - адрес брокера. "broker1:9093,broker2:9094";

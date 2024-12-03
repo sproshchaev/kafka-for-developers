@@ -67,7 +67,7 @@ Admin API
       - Класс AbortTransactionResult
       - Класс ListTransactionsResult
       - (to-do добавить демо)   
-3) Сообщения и консамеры:
+3) Сообщения и консюмеры:
    - Удаление записей:
       - Класс DeleteRecordsResult
       - Класс RecordsToDelete

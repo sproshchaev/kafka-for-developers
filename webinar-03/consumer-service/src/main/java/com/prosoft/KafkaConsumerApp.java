@@ -22,7 +22,7 @@ public class KafkaConsumerApp {
     public static void main(String[] args) {
 
         /***
-         * Создание и запуск консамеров в трех потоках
+         * Создание и запуск консюмеров в трех потоках
          */
         for (int i = 0; i < KafkaConfig.NUM_CONSUMERS; i++) {
 

@@ -6,7 +6,7 @@ import org.apache.kafka.common.serialization.StringDeserializer;
 import java.util.Properties;
 
 /**
- * Webinar-01: KafkaConfig содержит конфигурацию для кансамера в виде метода getConsumerConfig.
+ * Webinar-01: KafkaConfig содержит конфигурацию для консюмера в виде метода getConsumerConfig.
  * Конфигурации включают настройки для серверов Kafka, десериализации и групп потребителей.
  */
 public class KafkaConfig {
@@ -26,9 +26,10 @@ public class KafkaConfig {
         /** Идентификатор группы потребителей (consumer group ID) */
         properties.put(ConsumerConfig.GROUP_ID_CONFIG, GROUP_ID);
 
-        /** Использование StringSerializer для десериализации ключей и значений сообщений.
-         *  StringSerializer.class в контексте Apache Kafka представляет собой реализацию интерфейса Serializer
-         *  из клиентской библиотеки Kafka, которая используется для сериализации объектов типа String в байтовый формат.
+        /** Использование StringDeserializer для десериализации ключей и значений сообщений.
+         *  StringDeserializer.class в контексте Apache Kafka представляет собой реализацию интерфейса Serializer
+         *  из клиентской библиотеки Kafka, которая используется для десериализации объектов типа из байтового формата
+         *  в тип String.
          */
         properties.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class.getName());
         properties.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class.getName());

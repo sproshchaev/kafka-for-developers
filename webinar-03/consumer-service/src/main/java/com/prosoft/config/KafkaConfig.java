@@ -7,7 +7,7 @@ import org.apache.kafka.common.serialization.LongDeserializer;
 import java.util.Properties;
 
 /**
- * Webinar-03: KafkaConfig содержит конфигурацию для кансамера в виде метода getConsumerConfig.
+ * Webinar-03: KafkaConfig содержит конфигурацию для консюмера в виде метода getConsumerConfig.
  * Конфигурации включают настройки для серверов Kafka, десериализации и групп потребителей.
  */
 public class KafkaConfig {

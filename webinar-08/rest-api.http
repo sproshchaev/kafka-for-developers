@@ -20,9 +20,9 @@ Content-Type: application/vnd.kafka.json.v2+json
 }
 
 ### 3) Чтение сообщений из топика:
-## 3.1) Создание кансамера с параметрами GROUP_ID = "my-consumer-group".
-## В теле указывается: имя кансамера, формат, AUTO_OFFSET_RESET_CONFIG = "earliest" (начинает считывать сообщения с самого начала топика).
-## В ответе - ссылка на созданный консамер: "instance_id": "my-consumer"
+## 3.1) Создание консюмера с параметрами GROUP_ID = "my-consumer-group".
+## В теле указывается: имя консюмера, формат, AUTO_OFFSET_RESET_CONFIG = "earliest" (начинает считывать сообщения с самого начала топика).
+## В ответе - ссылка на созданный консюмер: "instance_id": "my-consumer"
 ##                                                         "base_uri": "http://kafka-rest:8082/consumers/my-consumer-group/instances/my-consumer".
 POST http://localhost:8082/consumers/my-consumer-group
 Content-Type: application/vnd.kafka.json.v2+json
@@ -62,6 +62,6 @@ Content-Type: application/vnd.kafka.json.v2+json
   ]
 }
 
-### 3.5) Удалить кансамер
+### 3.5) Удалить консюмер
 DELETE http://localhost:8082/consumers/my-consumer-group/instances/my-consumer
 Content-Type: application/vnd.kafka.json.v2+json

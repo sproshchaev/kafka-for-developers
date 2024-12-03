@@ -25,7 +25,7 @@ Kafka Schema Registry
   - формат сообщения 
   - варианты создания и обработки Avro-сообщений
   - методы: Generic, Reflection, Specific
-  - варианты реализации Продюсера и Кансамера для: Generic Record, Specific Record, Reflection
+  - варианты реализации Продюсера и Консюмера для: Generic Record, Specific Record, Reflection
   - типы данных: 
     - Примитивные: null, boolean, int, long, float, double, bytes, string
     - Комплексные: record, enum, array, map, union, fixed
