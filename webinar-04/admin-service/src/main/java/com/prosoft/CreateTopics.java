@@ -27,7 +27,7 @@ public class CreateTopics {
         KafkaAdminApp.deleteAllTopics();
         simpleCreate();
         createWithKafkaFuture();
-        validateTopicCreation("my-topic5");
+        validateTopicCreation("my-topic4");
         createTopicWithCustomReplication();
     }
 
@@ -57,7 +57,7 @@ public class CreateTopics {
              */
             short replicationFactor = 1;
 
-            /** Создание еденичного топика */
+            /** Создание единичного топика */
             NewTopic newTopic = new NewTopic(topicName, numPartitions, replicationFactor);
             adminClient.createTopics(Collections.singleton(newTopic)).all().get();
             logger.info("Топик '{}' успешно создан.", topicName);
