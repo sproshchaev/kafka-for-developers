@@ -31,7 +31,7 @@ Content-Type: application/vnd.kafka.json.v2+json
   "name": "my-consumer", "format": "json", "auto.offset.reset": "earliest"
 }
 
-### 3.2) Подписка на топик. URL = 'ссылка из "base_uri" (п.3.2)' + '/subscription'
+### 3.2) Подписка на топик. URL = 'ссылка из "base_uri" (п.3.1)' + '/subscription'
 ## Ожидаемый успешный ответ: '204 No Content'
 POST http://localhost:8082/consumers/my-consumer-group/instances/my-consumer/subscription
 Content-Type: application/vnd.kafka.json.v2+json
@@ -42,13 +42,13 @@ Content-Type: application/vnd.kafka.json.v2+json
   ]
 }
 
-### 3.3) Чтение данных из топика. URL = 'ссылка из "base_uri" (п.3.2)' + '/records'
+### 3.3) Чтение данных из топика. URL = 'ссылка из "base_uri" (п.3.1)' + '/records'
 ## Примечание: - первый запрос возвращает 'HTTP/1.1 200 OK' (без данных)
 ##             - второй запрос возвращает данные
 GET http://localhost:8082/consumers/my-consumer-group/instances/my-consumer/records
 Accept: application/vnd.kafka.json.v2+json
 
-### 3.4) Перемещение оффсета в начало. URL = 'ссылка из "base_uri" (п.3.2)' + '/positions/beginning'
+### 3.4) Перемещение оффсета в начало. URL = 'ссылка из "base_uri" (п.3.1)' + '/positions/beginning'
 ## Ожидаемый успешный ответ: '204 No Content'
 POST http://localhost:8082/consumers/my-consumer-group/instances/my-consumer/positions/beginning
 Content-Type: application/vnd.kafka.json.v2+json
@@ -63,5 +63,6 @@ Content-Type: application/vnd.kafka.json.v2+json
 }
 
 ### 3.5) Удалить консюмер
+## Ожидаемый успешный ответ: '204 No Content'
 DELETE http://localhost:8082/consumers/my-consumer-group/instances/my-consumer
 Content-Type: application/vnd.kafka.json.v2+json
