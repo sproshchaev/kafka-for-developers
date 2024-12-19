@@ -1,0 +1,557 @@
+{
+	"info": {
+		"_postman_id": "13f70651-8771-412f-a7a8-ee326f2878c3",
+		"name": "schema-registry",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19342096"
+	},
+	"item": [
+		{
+			"name": "1 Регистрация схемы для субъекта \"w7-topic-value\"",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"schema\": \"{\\n  \\\"type\\\": \\\"record\\\",\\n  \\\"name\\\": \\\"Person\\\",\\n  \\\"namespace\\\": \\\"com.prosoft.domain\\\",\\n  \\\"fields\\\": [\\n    {\\n      \\\"name\\\": \\\"id\\\",\\n      \\\"type\\\": \\\"long\\\"\\n    },\\n    {\\n      \\\"name\\\": \\\"firstName\\\",\\n      \\\"type\\\": \\\"string\\\"\\n    },\\n    {\\n      \\\"name\\\": \\\"lastName\\\",\\n      \\\"type\\\": \\\"string\\\"\\n    },\\n    {\\n      \\\"name\\\": \\\"age\\\",\\n      \\\"type\\\": \\\"int\\\"\\n    }\\n  ]\\n}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/subjects/w7-topic-value/versions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"subjects",
+						"w7-topic-value",
+						"versions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2 Регистрация схемы для субъекта \"w7-topic-value\" с добавлением необязательного поля \"default\"",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"schema\": \"{\\n  \\\"type\\\": \\\"record\\\",\\n  \\\"name\\\": \\\"Person\\\",\\n  \\\"namespace\\\": \\\"com.prosoft.domain\\\",\\n  \\\"fields\\\": [\\n    {\\n      \\\"name\\\": \\\"id\\\",\\n      \\\"type\\\": \\\"long\\\"\\n    },\\n    {\\n      \\\"name\\\": \\\"firstName\\\",\\n      \\\"type\\\": \\\"string\\\"\\n    },\\n    {\\n      \\\"name\\\": \\\"lastName\\\",\\n      \\\"type\\\": \\\"string\\\"\\n    },\\n    {\\n      \\\"name\\\": \\\"age\\\",\\n      \\\"type\\\": \\\"int\\\"\\n    },\\n    {\\n      \\\"name\\\": \\\"middleName\\\",\\n      \\\"type\\\": [\\\"null\\\", \\\"string\\\"],\\n      \\\"default\\\": null\\n    }\\n  ]\\n}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/subjects/w7-topic-value/versions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"subjects",
+						"w7-topic-value",
+						"versions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3 Регистрация схемы для субъекта \"w7-topic-2-value\"",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"schema\": \"{\\n  \\\"type\\\": \\\"record\\\",\\n  \\\"name\\\": \\\"Person\\\",\\n  \\\"namespace\\\": \\\"com.prosoft.domain\\\",\\n  \\\"fields\\\": [\\n    {\\n      \\\"name\\\": \\\"id\\\",\\n      \\\"type\\\": \\\"long\\\"\\n    },\\n    {\\n      \\\"name\\\": \\\"firstName\\\",\\n      \\\"type\\\": \\\"string\\\"\\n    },\\n    {\\n      \\\"name\\\": \\\"lastName\\\",\\n      \\\"type\\\": \\\"string\\\"\\n    },\\n    {\\n      \\\"name\\\": \\\"age\\\",\\n      \\\"type\\\": \\\"int\\\"\\n    }\\n  ]\\n}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/subjects/w7-topic-2-value/versions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"subjects",
+						"w7-topic-2-value",
+						"versions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4 Регистрация схемы для субъекта \"w7-topic-2-value\"  с добавлением необязательного поля \"default\"",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"schema\": \"{\\n  \\\"type\\\": \\\"record\\\",\\n  \\\"name\\\": \\\"Person\\\",\\n  \\\"namespace\\\": \\\"com.prosoft.domain\\\",\\n  \\\"fields\\\": [\\n    {\\n      \\\"name\\\": \\\"id\\\",\\n      \\\"type\\\": \\\"long\\\"\\n    },\\n    {\\n      \\\"name\\\": \\\"firstName\\\",\\n      \\\"type\\\": \\\"string\\\"\\n    },\\n    {\\n      \\\"name\\\": \\\"lastName\\\",\\n      \\\"type\\\": \\\"string\\\"\\n    },\\n    {\\n      \\\"name\\\": \\\"age\\\",\\n      \\\"type\\\": \\\"int\\\"\\n    },\\n    {\\n      \\\"name\\\": \\\"middleName\\\",\\n      \\\"type\\\": [\\\"null\\\", \\\"string\\\"],\\n      \\\"default\\\": null\\n    }\\n  ]\\n}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/subjects/w7-topic-2-value/versions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"subjects",
+						"w7-topic-2-value",
+						"versions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3 Регистрация схемы для субъекта \"w7-topic-3-value\"",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"schema\": \"{\\n  \\\"type\\\": \\\"record\\\",\\n  \\\"name\\\": \\\"Person\\\",\\n  \\\"namespace\\\": \\\"com.prosoft.domain\\\",\\n  \\\"fields\\\": [\\n    {\\n      \\\"name\\\": \\\"id\\\",\\n      \\\"type\\\": \\\"long\\\"\\n    },\\n    {\\n      \\\"name\\\": \\\"firstName\\\",\\n      \\\"type\\\": \\\"string\\\"\\n    },\\n    {\\n      \\\"name\\\": \\\"lastName\\\",\\n      \\\"type\\\": \\\"string\\\"\\n    },\\n    {\\n      \\\"name\\\": \\\"age\\\",\\n      \\\"type\\\": \\\"int\\\"\\n    }\\n  ]\\n}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/subjects/w7-topic-3-value/versions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"subjects",
+						"w7-topic-3-value",
+						"versions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "5 Получение всех версий схемы для субъекта \"w7-topic-value\"",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/subjects/w7-topic-value/versions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"subjects",
+						"w7-topic-value",
+						"versions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "6 Получить версию схемы id=1 для субъекта \"w7-topic-value\"",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/subjects/w7-topic-value/versions/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"subjects",
+						"w7-topic-value",
+						"versions",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "7 Получить версию схемы id=2 для субъекта \"w7-topic-value\"",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/subjects/w7-topic-value/versions/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"subjects",
+						"w7-topic-value",
+						"versions",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "8 Получение всех субъектов",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/subjects",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"subjects"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "9 Удаление всех версий схем для субъекта \"w7-topic-2-value\"",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/subjects/w7-topic-2-value",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"subjects",
+						"w7-topic-2-value"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "10 Удаление версии схемы id=2 для субъекта \"w7-topic-value\"",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/subjects/w7-topic-value/versions/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"subjects",
+						"w7-topic-value",
+						"versions",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "11 Получение схемы с id=1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/schemas/ids/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"schemas",
+						"ids",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "12 Получение схемы с id=2",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/schemas/ids/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"schemas",
+						"ids",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "13 Проверка совместимости новой схемы с указанной версией id=1",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"schema\": \"{\\n  \\\"type\\\": \\\"record\\\",\\n  \\\"name\\\": \\\"Person\\\",\\n  \\\"namespace\\\": \\\"com.prosoft.domain\\\",\\n  \\\"fields\\\": [\\n    {\\n      \\\"name\\\": \\\"id\\\",\\n      \\\"type\\\": \\\"long\\\"\\n    },\\n    {\\n      \\\"name\\\": \\\"firstName\\\",\\n      \\\"type\\\": \\\"string\\\"\\n    },\\n    {\\n      \\\"name\\\": \\\"lastName\\\",\\n      \\\"type\\\": \\\"string\\\"\\n    },\\n    {\\n      \\\"name\\\": \\\"age\\\",\\n      \\\"type\\\": \\\"int\\\"\\n    },\\n    {\\n      \\\"name\\\": \\\"middleName\\\",\\n      \\\"type\\\": [\\\"null\\\", \\\"string\\\"],\\n      \\\"default\\\": null\\n    }\\n  ]\\n}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/compatibility/subjects/w7-topic-value/versions/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"compatibility",
+						"subjects",
+						"w7-topic-value",
+						"versions",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "14 Изменить стратегию c \"Backward Compatibility (Обратная совместимость)\" (она по умолчанию) на стратегию \"None (Без ограничений)\"",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"compatibility\": \"NONE\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/config/w7-topic-value",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"config",
+						"w7-topic-value"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "15 Получение совместимости для субъекта \"w7-topic-value\"",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/config/w7-topic-value",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"config",
+						"w7-topic-value"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "16 Получение глобального уровня совместимости",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/config",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"config"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "17 Установка глобального уровня совместимости",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\r\n      \"compatibility\": \"FULL\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/config",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"config"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "18 Получение версии схемы для субъекта \"w7-topic-value\" по содержимому",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"schema\": \"{\\n  \\\"type\\\": \\\"record\\\",\\n  \\\"name\\\": \\\"Person\\\",\\n  \\\"namespace\\\": \\\"com.prosoft.domain\\\",\\n  \\\"fields\\\": [\\n    {\\n      \\\"name\\\": \\\"id\\\",\\n      \\\"type\\\": \\\"long\\\"\\n    },\\n    {\\n      \\\"name\\\": \\\"firstName\\\",\\n      \\\"type\\\": \\\"string\\\"\\n    },\\n    {\\n      \\\"name\\\": \\\"lastName\\\",\\n      \\\"type\\\": \\\"string\\\"\\n    },\\n    {\\n      \\\"name\\\": \\\"age\\\",\\n      \\\"type\\\": \\\"int\\\"\\n    }\\n  ]\\n}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/subjects/w7-topic-value",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"subjects",
+						"w7-topic-value"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

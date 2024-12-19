@@ -13,6 +13,8 @@
 Порт http://localhost:9000/
 4) schema-registry
 Порт http://localhost:8081/
+5) schema-registry-ui
+Порт http://localhost:8001/
 ```
 
 ## Features list
@@ -96,8 +98,8 @@ webinar-07
 │
 ├── person-reflect.avro
 ├── pom.xml
-├── rest-api.http
+├── schema-registry.postman_collection.json — коллекция запросов Schema Registry для Postman
 ├── build.gradle.kts
-├── docker-compose.yaml
+├── docker-compose.yaml — конфигурационный файл для автоматизации развертывания Docker-приложений
 └── README.md
 ```
