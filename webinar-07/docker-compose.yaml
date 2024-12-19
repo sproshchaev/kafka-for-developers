@@ -56,14 +56,14 @@ services:
       test: 'curl -f http://localhost:8081 || exit 1'
 
   schema-registry-ui:
-    image: 'landoop/schema-registry-ui:0.9.5'
-    container_name: 'kafka-schema-registry-ui'
+    image: landoop/schema-registry-ui:0.9.5
+    container_name: schema-registry-ui
     depends_on:
-      - 'schema-registry'
+      - schema-registry
     ports:
-      - '8001:8000'
+      - "8001:8000"
     environment:
-      - 'SCHEMAREGISTRY_URL=http://schema-registry:8081'
-      - 'PROXY=true'
+      SCHEMAREGISTRY_URL: http://schema-registry:8081
+      PROXY: 'true'
     healthcheck:
       test: 'wget --quiet --tries=1 --spider http://localhost:8000 || exit 1'
