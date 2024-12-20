@@ -104,6 +104,24 @@ webinar-07
 └── README.md
 ```
 ---
+Примечание:  
+1. В ветке `base` находятся примеры с использованием специфичного (specific) класса, который создается с использованием  
+плагина Maven из схемы Avro (плагин генерирует `domain\Person.java`, см. настройку `specific.avro.reader=true`)  
+2. В ветке https://github.com/sproshchaev/kafka-for-developers/blob/feature/add-person-schema-registry/webinar-07/README.md находится 
+пример с использованием `generic Avro Reader` вместо специфичного (specific) класса (поэтому нет `domain\Person.java`, см. настройку `specific.avro.reader=false`).  
+Как это работает: перед публикацией сообщения регистрируется схема в Schema Registry (через REST API) и формируется её ID.
+Если мы не указываем id версии в явную, то при запросе мы получаем самую последнюю зарегистрированную версию схемы в Schema Registry. 
+Но мы можем указать конкретную версию:
+```java
+    private static final int SCHEMA_VERSION = 2;
+    String schemaString = schemaRegistryClient.getSchemaMetadata(subject, SCHEMA_VERSION).getSchema();
+    Schema schema = new Schema.Parser().parse(schemaString);
+    //...
+```
+Этот ID схемы вставляется в начало каждого Kafka-сообщения. Когда сообщение потребляется, KafkaAvroDeserializer считывает ID схемы  
+из сообщения и извлекает соответствующую схему из Schema Registry.
+
+---
 
 ## Описание REST API Confluent Schema Registry для управления схемами 
 

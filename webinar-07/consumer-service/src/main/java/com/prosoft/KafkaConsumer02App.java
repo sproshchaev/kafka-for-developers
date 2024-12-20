@@ -13,6 +13,10 @@ import java.util.Collections;
 
 /**
  * Webinar-07: Kafka consumer-service
+ * Указание субъекта 'w7-topic-value' и ID схемы (в вашем случае 1) происходит автоматически благодаря интеграции
+ * KafkaAvroDeserializer с Schema Registry.
+ * Продюсер вставляет id схемы в начало каждого Kafka-сообщения и когда сообщение обрабатывает потребитель,
+ * то KafkaAvroDeserializer считывает id схемы из сообщения и извлекает её из Schema Registry.
  */
 public class KafkaConsumer02App {
     private static final Logger logger = LoggerFactory.getLogger(KafkaConsumer02App.class);

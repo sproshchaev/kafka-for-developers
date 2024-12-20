@@ -16,6 +16,8 @@ import java.time.format.DateTimeFormatter;
 
 /**
  * Kafka producer-service (отправка GenericRecord объектов)
+ * Для работы необходимо в Schema Registry загрузить схему:
+ * см. https://github.com/sproshchaev/kafka-for-developers/blob/base/webinar-07/README.md "1.1 Добавление новой схемы или версии схемы".
  */
 public class KafkaProducer02App {
 
@@ -24,13 +26,21 @@ public class KafkaProducer02App {
     private static final String SCHEMA_REGISTRY_URL = "http://localhost:8081";
     private static final String TOPIC = KafkaConfig.TOPIC;
 
+    private static final int SCHEMA_VERSION = 1; // можно указывать явный номер версии
+
     public static void main(String[] args) {
         try (KafkaProducer<Long, GenericRecord> producer = new KafkaProducer<>(KafkaConfig.getProducerConfig())) {
 
             // Подключение к Schema Registry и загрузка схемы
             SchemaRegistryClient schemaRegistryClient = new CachedSchemaRegistryClient(SCHEMA_REGISTRY_URL, 10);
             String subject = TOPIC + "-value";
+
+            // Получаем самую последнюю версию схемы
             String schemaString = schemaRegistryClient.getLatestSchemaMetadata(subject).getSchema();
+
+            // Или получаем конкретную версию схемы, указав в параметре getSchemaMetadata() ее номер
+            // String schemaString = schemaRegistryClient.getSchemaMetadata(subject, SCHEMA_VERSION).getSchema();
+
             Schema schema = new Schema.Parser().parse(schemaString);
 
             for (int i = 0; i < MAX_MESSAGE; i++) {
