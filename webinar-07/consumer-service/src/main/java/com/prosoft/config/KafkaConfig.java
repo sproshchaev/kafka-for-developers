@@ -42,8 +42,10 @@ public class KafkaConfig {
         /** Адрес Schema Registry */
         properties.put(AbstractKafkaSchemaSerDeConfig.SCHEMA_REGISTRY_URL_CONFIG, SCHEMA_REGISTRY_URL);
 
-        /** Настройка десериализатора (Avro) использовать сгенерированные классы (specific classes) для десериализации Avro-сообщений */
-        properties.put(KafkaAvroDeserializerConfig.SPECIFIC_AVRO_READER_CONFIG, "true");
+        /** Настройка десериализатора (Avro) использовать generic Avro Reader для десериализации вместо специфичного (specific) класса.
+         * Значение "false" означает использование generic reader.
+         */
+        properties.put(KafkaAvroDeserializerConfig.SPECIFIC_AVRO_READER_CONFIG, "false");
 
         return properties;
     }

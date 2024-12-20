@@ -1,7 +1,7 @@
 package com.prosoft;
 
 import com.prosoft.config.KafkaConfig;
-import com.prosoft.domain.Person;
+import org.apache.avro.generic.GenericRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
@@ -14,17 +14,21 @@ import java.util.Collections;
 /**
  * Webinar-07: Kafka consumer-service
  */
-public class KafkaConsumerApp {
-    private static final Logger logger = LoggerFactory.getLogger(KafkaConsumerApp.class);
+public class KafkaConsumer02App {
+    private static final Logger logger = LoggerFactory.getLogger(KafkaConsumer02App.class);
     private static final Duration TEN_MILLISECONDS_INTERVAL = Duration.ofMillis(10);
 
     public static void main(String[] args) {
-        KafkaConsumer<Long, Person> consumer = new KafkaConsumer<>(KafkaConfig.getConsumerConfig());
+        // KafkaConsumer with GenericRecord as value
+        KafkaConsumer<Long, GenericRecord> consumer = new KafkaConsumer<>(KafkaConfig.getConsumerConfig());
         try (consumer) {
+            // Subscribing to the topic
             consumer.subscribe(Collections.singletonList(KafkaConfig.TOPIC));
             while (true) {
-                ConsumerRecords<Long, Person> consumerRecords = consumer.poll(TEN_MILLISECONDS_INTERVAL);
-                for (ConsumerRecord<Long, Person> cr : consumerRecords) {
+                // Polling records
+                ConsumerRecords<Long, GenericRecord> consumerRecords = consumer.poll(TEN_MILLISECONDS_INTERVAL);
+                for (ConsumerRecord<Long, GenericRecord> cr : consumerRecords) {
+                    // Logging received record
                     logger.info("Received record: key={}, value={}, partition={}, offset={}",
                             cr.key(), cr.value(), cr.partition(), cr.offset());
                 }
