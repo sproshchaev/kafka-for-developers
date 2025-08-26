@@ -23,16 +23,15 @@ public class KafkaConsumer02App {
     private static final Duration TEN_MILLISECONDS_INTERVAL = Duration.ofMillis(10);
 
     public static void main(String[] args) {
-        // KafkaConsumer with GenericRecord as value
+        // Создание KafkaConsumer с исп. GenericRecord
         KafkaConsumer<Long, GenericRecord> consumer = new KafkaConsumer<>(KafkaConfig.getConsumerConfig());
         try (consumer) {
-            // Subscribing to the topic
+            // Подписываемся на наш топик
             consumer.subscribe(Collections.singletonList(KafkaConfig.TOPIC));
             while (true) {
-                // Polling records
+                // Получаем сообщения
                 ConsumerRecords<Long, GenericRecord> consumerRecords = consumer.poll(TEN_MILLISECONDS_INTERVAL);
                 for (ConsumerRecord<Long, GenericRecord> cr : consumerRecords) {
-                    // Logging received record
                     logger.info("Received record: key={}, value={}, partition={}, offset={}",
                             cr.key(), cr.value(), cr.partition(), cr.offset());
                 }
