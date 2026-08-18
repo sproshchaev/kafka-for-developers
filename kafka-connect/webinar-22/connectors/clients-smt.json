@@ -1,0 +1,27 @@
+{
+  "name": "clients-smt",
+  "config": {
+    "connector.class": "io.confluent.connect.jdbc.JdbcSourceConnector",
+    "connection.url": "jdbc:postgresql://postgres:5432/postgres",
+    "connection.user": "postgres",
+    "connection.password": "postgres",
+    "table.whitelist": "clients",
+    "mode": "timestamp+incrementing",
+    "incrementing.column.name": "id",
+    "timestamp.column.name": "modified_date",
+    "numeric.mapping": "best_fit",
+    "poll.interval.ms": "5000",
+    "topic.prefix": "postgres.",
+    "tasks.max": "1",
+
+    "transforms": "maskCard,dropGender,addSource",
+    "transforms.maskCard.type": "org.apache.kafka.connect.transforms.MaskField$Value",
+    "transforms.maskCard.fields": "card_number",
+    "transforms.maskCard.replacement": "****",
+    "transforms.dropGender.type": "org.apache.kafka.connect.transforms.ReplaceField$Value",
+    "transforms.dropGender.exclude": "gender",
+    "transforms.addSource.type": "org.apache.kafka.connect.transforms.InsertHeader",
+    "transforms.addSource.header": "source",
+    "transforms.addSource.value.literal": "jdbc-source-clients"
+  }
+}

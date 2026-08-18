@@ -1,0 +1,19 @@
+{
+  "name": "customers",
+  "config": {
+    "connector.class": "io.confluent.connect.jdbc.JdbcSinkConnector",
+    "connection.url": "jdbc:postgresql://postgres:5432/postgres",
+    "connection.user": "postgres",
+    "connection.password": "postgres",
+    "topics": "customers",
+    "insert.mode": "upsert",
+    "pk.mode": "record_value",
+    "pk.fields": "id",
+    "auto.create": "true",
+    "auto.evolve": "true",
+    "batch.size": "100",
+    "tasks.max": "1",
+    "consumer.override.auto.offset.reset": "earliest",
+    "table.name.format": "public.customers"
+  }
+}

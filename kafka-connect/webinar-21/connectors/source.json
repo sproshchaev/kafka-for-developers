@@ -1,0 +1,8 @@
+{
+  "name": "load",
+  "config": {
+    "connector.class": "FileStreamSource",
+    "file": "/data/source.csv",
+    "topic": "data"
+  }
+}
